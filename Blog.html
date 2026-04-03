@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blog - Divine Gatesi</title>
+
+<style>
+/* ===== GLOBAL ===== */
+body {
+  margin: 0;
+  font-family: Arial;
+  transition: 0.3s;
+}
+
+.dark {
+  background: #111;
+  color: white;
+}
+
+.dark nav {
+  background: #000;
+}
+
+.dark footer {
+  background: #000;
+}
+
+.dark .blog-post {
+  background: #222;
+  border-color: #444;
+}
+
+/* ===== NAV ===== */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background: black;
+  color: white;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  gap: 15px;
+  margin: 0;
+  padding: 0;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+}
+
+nav a:hover {
+  color: hotpink;
+}
+
+nav h2 {
+  margin: 0;
+}
+
+nav button {
+  background: transparent;
+  border: 1px solid white;
+  color: white;
+  padding: 6px 12px;
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+/* ===== BLOG HEADER ===== */
+.blog-header {
+  text-align: center;
+  padding: 60px 20px 40px;
+  border-bottom: 5px solid hotpink;
+  border-radius: 10px;
+}
+
+.blog-header h1 {
+  font-size: 42px;
+  margin: 0;
+  color: hotpink;
+}
+
+.blog-header p {
+  color: #666;
+  margin: 10px 0 0 0;
+}
+
+.dark .blog-header p {
+  color: #aaa;
+}
+
+/* ===== BLOG POSTS ===== */
+.blog-container {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+.blog-post {
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 30px;
+  margin-bottom: 30px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.blog-post h2 {
+  color: hotpink;
+  margin-top: 0;
+  text-decoration: underline;
+}
+
+.blog-meta {
+  font-size: 13px;
+  color: #999;
+  margin-bottom: 15px;
+}
+
+.dark .blog-meta {
+  color: #666;
+}
+
+.blog-post p {
+  line-height: 1.8;
+  margin: 15px 0;
+}
+
+.blog-post h3 {
+  color: hotpink;
+  margin-top: 25px;
+}
+
+.blog-post ul {
+  margin: 15px 0;
+  padding-left: 20px;
+}
+
+.blog-post li {
+  margin-bottom: 8px;
+  line-height: 1.6;
+}
+
+.blog-post code {
+  background: #f4f4f4;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-family: 'Courier New', monospace;
+  color: #d63384;
+}
+
+.dark .blog-post code {
+  background: #2a2a2a;
+  color: #ff69b4;
+}
+
+.highlight {
+  background: #fff3cd;
+  padding: 2px 4px;
+  border-radius: 3px;
+}
+
+.dark .highlight {
+  background: #4a4a00;
+}
+
+/* ===== SIDEBAR ===== */
+.blog-sidebar {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+.sidebar-box {
+  background: hotpink;
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.sidebar-box h3 {
+  margin-top: 0;
+  text-decoration: underline;
+}
+
+.sidebar-box a {
+  color: white;
+  text-decoration: none;
+  display: block;
+  margin: 8px 0;
+}
+
+.sidebar-box a:hover {
+  text-decoration: underline;
+}
+
+/* ===== FOOTER ===== */
+footer {
+  background: black;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  margin-top: 60px;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-around;
+  padding: 20px;
+  border-bottom: 3px solid hotpink;
+  border-radius: 10px;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.footer-content h2 {
+  text-decoration: underline;
+}
+
+.footer-content a {
+  color: white;
+  text-decoration: none;
+}
+
+.footer-content a:hover {
+  color: hotpink;
+}
+
+/* ===== MOBILE ===== */
+@media (max-width: 600px) {
+  .blog-header h1 {
+    font-size: 28px;
+  }
+
+  .blog-post {
+    padding: 20px;
+  }
+
+  .blog-container {
+    padding: 0 10px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+  <h2>Divine Gatesi</h2>
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="index.html#projects">Projects</a></li>
+    <li><a href="index.html#skills">Skills</a></li>
+    <li><a href="Blog.html">Blog</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
+  </ul>
+  <button onclick="toggleMode()">🌙</button>
+</nav>
+
+<div class="blog-header">
+  <h1>Blog</h1>
+</div>
+
+<div class="blog-container">
+  
+  <!-- POST 1 -->
+  <div class="blog-post">
+    <div style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('coding.jpeg'); background-size: cover; width: 100%; height: 200px; border-radius: 10px; display: flex; align-items: flex-end; padding: 20px; color: white;">   
+        <h2>Learning to Code: A Beginner's Journey</h2>
+    </div>
+  <div class="blog-meta" style="background-color: #666; color: white; border-radius: 4px; width: fit-content; padding: 10px 10px; margin: 10px 0;">Published on January 15, 2025</div>
+    
+    <p>Start your coding journey with the right mindset. Master <span class="highlight">HTML, CSS, and JavaScript</span> before diving into frameworks.</p>
+    
+    <h3>Key Steps to Success</h3>
+    <ul>
+      <li>Master fundamentals first</li>
+      <li>Build real projects, not tutorials</li>
+      <li>Code 30 minutes daily consistently</li>
+      <li>Debug errors as learning opportunities</li>
+      <li>Join developer communities</li>
+    </ul>
+  </div>
+
+  <!-- POST 2 -->
+  <div class="blog-post">
+    <h2 style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('Sustainability.jpg'); background-size: cover; width: 100%; height: 200px; border-radius: 10px; display: flex; align-items: flex-end; padding: 20px; color: white;">Sustainability in Project Management</h2>
+    <div class="blog-meta" style="background-color: #666; color: white; border-radius: 4px; width: fit-content; padding: 10px 10px; margin: 10px 0;">Published on January 20, 2025</div>
+    <p>
+      Sustainability is no longer optional in project management—it's essential. As project managers, we have a responsibility to ensure our projects create value while minimizing environmental and social impact.
+    </p>
+    
+    <h3>What is Sustainable Project Management?</h3>
+    <p>
+      Sustainable project management integrates environmental, social, and economic considerations throughout the project lifecycle. It's about delivering results that benefit stakeholders today without compromising resources for future generations.
+    </p>
+    
+    <h3>Key Principles of Sustainable Projects</h3>
+    <ul>
+      <li><strong>Environmental Responsibility:</strong> Reduce carbon footprint, minimize waste, and use renewable resources</li>
+      <li><strong>Social Impact:</strong> Ensure fair practices, support communities, and promote diversity</li>
+      <li><strong>Economic Viability:</strong> Create long-term value and ensure financial sustainability</li>
+      <li><strong>Stakeholder Engagement:</strong> Include all stakeholders in decision-making processes</li>
+    </ul>
+    
+    <h3>Practical Steps to Implement Sustainability</h3>
+    <p>
+      As a project manager focused on sustainability, you can:
+    </p>
+    <ul>
+      <li>Assess environmental impacts early in the project planning phase</li>
+      <li>Set measurable sustainability goals aligned with your organization's mission</li>
+      <li>Monitor and report on sustainability metrics throughout the project</li>
+      <li>Engage suppliers and partners who share your sustainability values</li>
+      <li>Document lessons learned to improve future project planning</li>
+    </ul>
+    
+    <h3>Challenges and Solutions</h3>
+    <p>
+      Implementing sustainability can be challenging due to budget constraints and competing priorities. However, studies show that sustainable practices often reduce costs in the long term and enhance brand reputation. Start small, measure results, and build momentum.
+    </p>
+    
+    <h3>The Future of Project Management</h3>
+    <p>
+      Organizations that integrate sustainability into their project management practices are better positioned for long-term success. As a new generation of project managers, we have the opportunity to lead this change and create projects that matter for both people and the planet.
+    </p>
+  </div>
+
+  <!-- POST 3 -->
+  <div class="blog-post">
+    <h2>Combining Code Skills with Sustainable Project Management</h2>
+    <div class="blog-meta">Published on January 25, 2025</div>
+    
+    <p>
+      The intersection of technical skills and sustainability-focused project management creates powerful opportunities. As aspiring developers and future project managers, how can we leverage both competencies?
+    </p>
+    
+    <h3>Why Both Skills Matter</h3>
+    <p>
+      Understanding how to code helps project managers make better decisions about technical feasibility, timelines, and resource allocation. Meanwhile, sustainability knowledge ensures that technical projects create positive impact. Together, these skills make you a valuable asset.
+    </p>
+    
+    <h3>Building Sustainable Digital Products</h3>
+    <p>
+      Digital products have environmental impact too. Optimized code runs more efficiently, reducing server loads and energy consumption. As developers and managers, we should:
+    </p>
+    <ul>
+      <li>Write clean, efficient code that minimizes computational resources</li>
+      <li>Optimize images and assets to reduce file sizes</li>
+      <li>Choose hosting providers committed to renewable energy</li>
+      <li>Design with accessibility in mind to serve a broader audience sustainably</li>
+    </ul>
+    
+    <h3>Project Management Best Practices for Tech Teams</h3>
+    <p>
+      Managing tech projects sustainably means:
+    </p>
+    <ul>
+      <li>Using agile methodologies to adapt quickly and reduce waste</li>
+      <li>Implementing continuous integration to catch issues early</li>
+      <li>Fostering collaborative team environments for better decision-making</li>
+      <li>Setting clear sustainability metrics for technical projects</li>
+    </ul>
+    
+    <h3>Real-World Example: Building a Portfolio Website</h3>
+    <p>
+      My portfolio website demonstrates these principles. It's built with clean HTML and CSS, optimized for fast loading, and designed to be accessible. As a project, it involved planning, stakeholder feedback integration, and iterative improvements—all key project management skills.
+    </p>
+    
+    <h3>Conclusion</h3>
+    <p>
+      The future belongs to professionals who can bridge technical and management skills while keeping sustainability at the core. Whether you're learning to code or managing projects, remember that every decision has an impact. Choose wisely, build sustainably, and create projects that matter.
+    </p>
+  </div>
+
+</div>
+
+<div class="blog-sidebar">
+  <div class="sidebar-box">
+    <h3>📚 Resources</h3>
+    <a href="https://www.freecodecamp.org/" target="_blank">FreeCodeCamp</a>
+    <a href="https://developer.mozilla.org/" target="_blank">MDN Web Docs</a>
+    <a href="https://www.pmi.org/" target="_blank">Project Management Institute</a>
+    <a href="https://www.un.org/sustainabledevelopment/" target="_blank">UN Sustainable Development Goals</a>
+  </div>
+</div>
+
+<footer>
+  <section class="footer-content">
+    <div>
+      <h2>Follow Me</h2>
+      <a href="https://www.linkedin.com/in/divine-gatesi/" target="_blank">LinkedIn</a> |
+      <a href="https://github.com/Divinegatesi" target="_blank">GitHub</a>
+    </div>
+    <div>
+      <h2>Contact Info</h2>
+      <p>Email: <a href="mailto:gatesidivine10@gmail.com">gatesidivine10@gmail.com</a></p>
+    </div>
+  </section>
+  <section>
+    <p>&copy; 2025 Divine Gatesi. All rights reserved.</p>
+  </section>
+</footer>
+
+<script>
+// DARK MODE
+function toggleMode(){ document.body.classList.toggle("dark"); }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Divine Gatesi Portfolio</title>
+
+<style>
+/* ===== GLOBAL ===== */
+body {
+  margin: 0;
+  font-family: Arial;
+  transition: 0.3s;
+}
+
+.dark {
+  background: #111;
+  color: white;
+}
+
+.dark .card {
+  border-color: #444;
+  color: white;
+}
+
+.dark nav {
+  background: #000;
+}
+
+.dark footer {
+  background: #000;
+}
+
+/* ===== NAV ===== */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background: black;
+  color: white;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  gap: 15px;
+  margin: 0;
+  padding: 0;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+}
+
+nav a:hover {
+  color: hotpink;
+}
+
+nav h2 {
+  margin: 0;
+}
+
+nav button {
+  background: transparent;
+  border: 1px solid white;
+  color: white;
+  padding: 6px 12px;
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+/* ===== HERO ===== */
+.hero {
+  display: flex;
+  min-height: 100vh;
+  gap: 80px;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 5px solid hotpink;
+  border-radius: 10px;
+  padding: 40px 20px;
+  flex-wrap: wrap;
+}
+
+.hero img {
+  width: 200px;
+  border-radius: 50%;
+}
+
+/* ===== BUTTON ===== */
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background: hotpink;
+  color: white;
+  text-decoration: none;
+  margin-top: 10px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.btn:hover {
+  background: #ff3d8e;
+}
+
+/* ===== SECTIONS ===== */
+section {
+  padding: 40px;
+  text-align: center;
+}
+
+/* ===== GRID ===== */
+.grid {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.card {
+  border: 1px solid #ccc;
+  padding: 20px;
+  width: 250px;
+  border-radius: 8px;
+}
+
+.filter {
+  margin-bottom: 20px;
+}
+
+.filter button {
+  margin: 0 4px;
+  padding: 8px 16px;
+  cursor: pointer;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background: white;
+  font-size: 14px;
+}
+
+.filter button:hover {
+  background: hotpink;
+  color: white;
+  border-color: hotpink;
+}
+
+.projects {
+  text-decoration: underline;
+}
+
+/* ===== PROFILE ===== */
+.profile {
+  width: 150px;
+  border-radius: 50%;
+}
+
+/* ===== SKILLS ===== */
+#skills {
+  max-width: 700px;
+  margin: auto;
+}
+
+.bar {
+  background: #ddd;
+  border-radius: 4px;
+  margin-bottom: 12px;
+}
+
+.bar div {
+  height: 10px;
+  background: hotpink;
+  border-radius: 4px;
+}
+
+/* ===== TIMELINE ===== */
+.experience h2 {
+  text-decoration: underline;
+}
+
+.timeline {
+  display: flex;
+  gap: 50px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.timeline div {
+  align-content: center;
+  border: 1px solid #ccc;
+  padding: 10px;
+  width: 200px;
+  border-radius: 8px;
+}
+
+.timeline div h3 {
+  margin: 0;
+  text-decoration: underline;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+/* ===== FOOTER ===== */
+footer {
+  background: black;
+  color: white;
+  text-align: center;
+  padding: 10px;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-around;
+  padding: 20px;
+  border-bottom: 3px solid hotpink;
+  border-radius: 10px;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.footer-content h2 {
+  text-decoration: underline;
+}
+
+.footer-content a {
+  color: white;
+  text-decoration: none;
+}
+
+.footer-content a:hover {
+  color: hotpink;
+}
+
+/* ===== FORM ===== */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 500px;
+  max-width: 100%;
+  margin: auto;
+}
+
+form input,
+form textarea {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+  font-family: Arial;
+}
+
+form textarea {
+  height: 100px;
+  resize: vertical;
+}
+
+form button {
+  width: 100px;
+  align-self: center;
+  background: hotpink;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+form button:hover {
+  background: #ff3d8e;
+}
+
+/* ===== AI CHAT PANEL ===== */
+#chat-toggle-btn {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  background: hotpink;
+  color: white;
+  border: none;
+  font-size: 22px;
+  cursor: pointer;
+  z-index: 1000;
+  box-shadow: 0 4px 14px rgba(255, 105, 180, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#chat-toggle-btn:hover {
+  background: #ff3d8e;
+}
+
+#chat-panel {
+  display: none;
+  position: fixed;
+  bottom: 88px;
+  right: 24px;
+  width: 320px;
+  flex-direction: column;
+  border-radius: 14px;
+  background: white;
+  box-shadow: 0 6px 30px rgba(0, 0, 0, 0.18);
+  z-index: 1000;
+  overflow: hidden;
+  border: 1px solid #eee;
+}
+
+#chat-panel.open {
+  display: flex;
+}
+
+.dark #chat-panel {
+  background: #1e1e1e;
+  border-color: #333;
+}
+
+#chat-header-bar {
+  background: hotpink;
+  color: white;
+  padding: 12px 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#chat-header-bar strong {
+  font-size: 15px;
+}
+
+#chat-header-bar span {
+  font-size: 12px;
+  opacity: 0.85;
+}
+
+#chat-close-btn {
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 18px;
+  cursor: pointer;
+  line-height: 1;
+  padding: 0;
+}
+
+#chat-suggestions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding: 10px 12px 0;
+}
+
+.sug-btn {
+  font-size: 11px;
+  padding: 4px 10px;
+  border: 1px solid #ffb6d9;
+  border-radius: 20px;
+  background: white;
+  color: hotpink;
+  cursor: pointer;
+  font-family: Arial;
+}
+
+.sug-btn:hover {
+  background: hotpink;
+  color: white;
+}
+
+.dark .sug-btn {
+  background: #2a2a2a;
+  border-color: #ff69b4;
+  color: hotpink;
+}
+
+#chat-messages {
+  padding: 12px;
+  height: 240px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.chat-bubble {
+  max-width: 82%;
+  padding: 8px 12px;
+  border-radius: 12px;
+  font-size: 13px;
+  line-height: 1.5;
+  word-break: break-word;
+}
+
+.chat-bubble.user {
+  background: hotpink;
+  color: white;
+  align-self: flex-end;
+  border-bottom-right-radius: 3px;
+}
+
+.chat-bubble.bot {
+  background: #f3f3f3;
+  color: #111;
+  align-self: flex-start;
+  border-bottom-left-radius: 3px;
+}
+
+.chat-bubble.typing {
+  font-style: italic;
+  color: #888;
+  background: #f3f3f3;
+  align-self: flex-start;
+}
+
+.dark .chat-bubble.bot,
+.dark .chat-bubble.typing {
+  background: #2a2a2a;
+  color: #eee;
+}
+
+#chat-input-row {
+  padding: 10px;
+  border-top: 1px solid #eee;
+  display: flex;
+  gap: 8px;
+}
+
+.dark #chat-input-row {
+  border-top-color: #333;
+}
+
+#chat-input {
+  flex: 1;
+  padding: 8px 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 13px;
+  font-family: Arial;
+  outline: none;
+}
+
+#chat-input:focus {
+  border-color: hotpink;
+}
+
+.dark #chat-input {
+  background: #2a2a2a;
+  color: white;
+  border-color: #444;
+}
+
+#chat-send-btn {
+  background: hotpink;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 13px;
+  font-family: Arial;
+}
+
+#chat-send-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+#chat-send-btn:hover:not(:disabled) {
+  background: #ff3d8e;
+}
+
+/* ===== MOBILE ===== */
+@media (max-width: 600px) {
+  .grid {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  nav ul {
+    display: none;
+  }
+
+  .hero {
+    flex-direction: column;
+    text-align: center;
+    gap: 30px;
+  }
+
+  form {
+    width: 100%;
+    padding: 0 20px;
+    box-sizing: border-box;
+  }
+
+  #chat-panel {
+    width: calc(100vw - 32px);
+    right: 16px;
+    bottom: 80px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+  <h2>Divine Gatesi</h2>
+  <ul>
+    <li><a href="#about">Home</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="Blog.html">Blog</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <button onclick="toggleMode()">🌙</button>
+</nav>
+
+<header class="hero">
+  <div>
+    <h1>Divine Gatesi</h1>
+    <p>Project Manager | Aspiring Developer</p>
+    <a href="#projects" class="btn">View My Work</a>
+  </div>
+  <img src="Divine.png">
+</header>
+
+<section id="about">
+  <h2>About Me</h2>
+  <p>
+    Final-year Project Management student focused on sustainability and impact.
+  </p>
+  <a href="https://drive.google.com/file/d/1uWB9oOjIj7Ik94XtgjQi6naNHdBBUHDp/view?usp=sharing" target="_blank" class="btn">Download CV</a>
+</section>
+
+<section id="projects">
+  <h2>Projects</h2>
+  <div class="filter">
+    <button onclick="filterProjects('all')">All</button>
+    <button onclick="filterProjects('web')">Web</button>
+    <button onclick="filterProjects('research')">Research</button>
+  </div>
+
+  <div class="grid">
+
+    <div class="card web" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('portifolio.png'); background-size: cover; border-radius: 10px; color: white;">
+      <h3 style="background-color: #474747; color: white; border-radius: 5px; padding: 5px;">Portfolio Website</h3>
+    </div>
+
+    <div class="card research" class="card web" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('study.jpeg'); background-size: cover; border-radius: 10px; color: white;">
+      <h3 style="background-color: #474747; color: white; border-radius: 5px; padding: 5px;"><a href="https://docs.google.com/document/d/18iHLvhbN-DPb3AqqUVypY16LjgWxKnHR/edit?usp=sharing&ouid=101706888789422836863&rtpof=true&sd=true" target="_blank" style="color: white; text-decoration: none;">Sustainability Study</a></h3>
+    </div>
+
+  </div>
+</section>
+
+<section id="skills">
+  <h2>Skills</h2>
+  <p>HTML</p>
+  <div class="bar"><div style="width:80%"></div></div>
+
+  <p>Project Management</p>
+  <div class="bar"><div style="width:90%"></div></div>
+</section>
+
+<section class="experience">
+  <h2>Experience</h2>
+  <div class="timeline">
+    <div>
+      <h3>2024 Internship</h3>
+      <p>Tourism project work</p>
+    </div>
+
+    <div>
+      <h3>2025 Research</h3>
+      <p>Sustainability study</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2 style="text-decoration: underline;">Testimonials</h2>
+  <div style="display: flex; gap: 100px; justify-content: center;">
+    <div class="">
+      <img src="Jordan.jpeg" class="profile" style="width: 130px; height: 140px;">
+      <h4 style="text-decoration: underline;">Henry Jordan</h4>
+      <p>Excellent project manager with great leadership skills!</p>
+    </div>
+    <div class="">
+      <img src="Didier.jpeg" class="profile" style="width: 130px; height: 140px;">
+      <h4 style="text-decoration: underline;">Didier HABINSHUTI</h4>
+      <p>Great collaborator and innovative thinker!</p>
+    </div>
+    </div>
+</section>
+
+<section id="contact">
+  <h2 style="text-decoration: underline;">Contact</h2>
+
+  <form onsubmit="return validateForm()" >
+    <input type="text" id="name" placeholder="Name">
+    <input type="email" id="email" placeholder="Email">
+    <textarea id="message" placeholder="Message"></textarea>
+    <button type="submit">Send</button>
+  </form>
+</section>
+
+<footer>
+  <section class="footer-content">
+    <div>
+      <h2>Follow Me</h2>
+      <a href="https://www.linkedin.com/in/divine-gatesi/" target="_blank">LinkedIn</a> |
+      <a href="https://github.com/Divinegatesi" target="_blank">GitHub</a>
+    </div>
+    <div>
+      <h2>Contact Info</h2>
+      <p>Email: <a href="mailto:gatesidivine10@gmail.com">gatesidivine10@gmail.com</a></p>
+    </div>
+  </section>
+  <section>
+    <p>&copy; 2025 Divine Gatesi. All rights reserved.</p>
+  </section>
+</footer>
+
+<!-- CHAT BUTTON -->
+<button onclick="openChat()" style="position:fixed;bottom:20px;right:20px;padding:15px;border-radius:50%;background:hotpink;color:white;border:none;">💬</button>
+
+<!-- CHAT PANEL -->
+<div id="chat-panel">
+  <div style="background:black;color:white;padding:10px;">
+    AI Assistant
+    <button onclick="closeChat()" style="float:right;">X</button>
+  </div>
+
+  <div id="chat-messages"></div>
+
+  <input id="chat-input" placeholder="Ask something...">
+  <button onclick="sendMessage()">Send</button>
+</div>
+
+<script>
+// DARK MODE
+function toggleMode(){ document.body.classList.toggle("dark"); }
+
+// FILTER
+function filterProjects(type){
+  let cards=document.querySelectorAll(".card");
+  cards.forEach(c=>{
+    if(type==="all"||c.classList.contains(type)){c.style.display="block";}
+    else{c.style.display="none";}
+  });
+}
+
+// FORM
+function validateForm(){
+  let name=document.getElementById("name").value;
+  let email=document.getElementById("email").value;
+  if(name===""||email===""){alert("Fill all fields");return false;}
+  return true;
+}
+
+// CHAT FUNCTIONS
+function openChat(){ document.getElementById("chat-panel").style.display="flex"; }
+function closeChat(){ document.getElementById("chat-panel").style.display="none"; }
+
+function addBubble(text,role){
+  let box=document.getElementById("chat-messages");
+  let div=document.createElement("div");
+  div.style.margin="5px";
+  div.style.padding="8px";
+  div.style.borderRadius="10px";
+  div.style.background=role==="user"?"hotpink":"#eee";
+  div.style.color=role==="user"?"white":"black";
+  div.innerText=text;
+  box.appendChild(div);
+  box.scrollTop=box.scrollHeight;
+}
+
+function sendMessage(){
+  let input=document.getElementById("chat-input");
+  let text=input.value.trim();
+  if(!text)return;
+
+  addBubble(text,"user");
+  input.value="";
+
+  let reply="";
+
+  if(text.toLowerCase().includes("skills")){
+    reply="Divine has skills in HTML and Project Management.";
+  }
+  else if(text.toLowerCase().includes("projects")){
+    reply="She built a Portfolio Website and a Sustainability Study.";
+  }
+  else if(text.toLowerCase().includes("contact")){
+    reply="Email: gatesidivine10@gmail.com";
+  }
+  else{
+    reply="Please contact Divine for more details.";
+  }
+
+  setTimeout(()=>addBubble(reply,"bot"),500);
+}
+
+// ENTER KEY
+document.getElementById("chat-input").addEventListener("keydown",e=>{
+  if(e.key==="Enter")sendMessage();
+});
+</script>
+
+</body>
+</html>
